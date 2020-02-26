@@ -1,0 +1,41 @@
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $page = 'logIn';
+}?>
+
+<?php
+require_once '../app/model/clientNotifications.php';
+$input = get('input');
+$clientEventSearch = searchClientEvent($conn , $input);
+?>
+<br><br><br><br>
+<h1>List of Searched Client Events</h1>
+<div class="container table-responsive" >
+    <table class="table table-dark table-hover">
+    <tr class="client_table">
+        <th>Client Event ID</th>
+        <th>Client ID</th>
+        <th>Notification ID</th>
+        <th>Start Date/Time</th>
+        <th>Frequency</th>
+        <th>Status</th>
+
+    </tr>
+    <?php
+    foreach ($clientEventSearch as $key=>$clientEvent){
+        ?>
+        <tr>
+            <td><?php echo $clientEvent->getMessageID(); ?></td>
+            <td><?php echo $clientEvent->getClientID(); ?></td>
+            <td><?php echo $clientEvent->getNotificationID(); ?></td>
+            <td><?php echo $clientEvent->getStartDate(); ?></td>
+            <td><?php echo $clientEvent->getFrequency(); ?></td>
+            <td><?php echo $clientEvent->getStatus(); ?></td>
+            <td><a href="?page=clientNotifications&action=editClientNotification&id=<?php echo $clientEvent->getMessageID(); ?>">Edit</a></td>
+            <td><a href="?page=clientNotifications&action=activateClientNotification&id=<?php echo $clientEvent->getMessageID(); ?>">Activate</a></td>
+            <td><a href="?page=clientNotifications&action=archiveClientNotification&id=<?php echo $clientEvent->getMessageID(); ?>">Archive</a></td>
+        </tr>
+        <?php
+    }
+    ?>
+</table>
+</div>

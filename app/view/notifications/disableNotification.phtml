@@ -1,0 +1,21 @@
+<!-- this is a form that passes hidden values to just CHANGE THE STATUS FIELD-->
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $page = 'logIn';
+}?>
+
+<?php
+require_once '../app/model/Notification.php';
+?>
+<br><br><br><br><br>
+<div class="container"><p>Are you sure you want to change status to disabled?</p></div>
+
+<form action="./?page=notifications&action=doDisableNotification" method="post">
+    <br>
+    <br>
+    <input type="hidden" name="notificationName" value="<?php echo $notification->getName();?>"><br><br>
+    <input type="hidden" name="notificationType" value="<?php echo $notification->getType();?>"><br><br>
+    <input type="hidden" name="status" value="disabled">
+    <input type="hidden" name="id" value="<?php echo $notification->getId();?>">
+    <input type="submit" value="Yes, I am sure">
+
+</form>

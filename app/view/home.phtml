@@ -1,0 +1,57 @@
+<!-- this is the home layout-->
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $current_view = $config['VIEW_PATH'].'logIn.phtml';
+    $databaseLink = "..".DS."app".DS."data".DS."databaseBackups";
+}?>
+<br><br><br>
+<div class="page-header"><h1>Accounting Firm Notification System</h1></div>
+
+<hr>
+<div class="container">
+<h3>Client Module</h3>
+<div class = "section">
+    <ul>
+        <li><a href="?page=clients&action=view">View All Clients</a></li>
+        <li><a href="?page=clients&action=add">Add Client</a></li>
+        <li><a href="?page=clients&action=edit_view">Modify Client</a></li>
+        <li><a href="?page=clients&action=archive_activate_view">Archive/Activate Client</a></li>
+    </ul>
+</div>
+
+    <br>
+<h3>Notification Module</h3>
+<section class = "section">
+    <ul>
+        <li><a href="?page=notifications&action=viewNotification">View All Notifications</a></li>
+        <li><a href="?page=notifications&action=addNotification">Add Notification</a></li>
+        <li><a href="?page=notifications&action=editNotificationView">Modify Notification</a></li>
+        <li><a href="?page=notifications&action=enableDisableNotificationView">Enable/Disable Notification</a></li>
+    </ul>
+</section>
+
+    <br>
+<h3>Client Notification Module</h3>
+<section class = "section">
+    <ul>
+        <li><a href="?page=clientNotifications&action=viewClientNotification">View All Client's Notifications</a></li>
+        <li><a href="?page=clientNotifications&action=addClientNotification">Add Notification to Client</a></li>
+        <li><a href="?page=clientNotifications&action=editClientNotificationView">Edit Client's Notifications</a></li>
+        <li><a href="?page=clientNotifications&action=archiveActivateViewClientNotification">Archive/Activate Client's Notifications</a></li>
+
+    </ul>
+</section>
+    <br>
+<?php if($_SESSION['position'] == 'Manager' || $_SESSION['position'] == 'Senior Accountant'){ ?>
+    <h3>User Module</h3>
+<div class = "section">
+    <ul>
+        <li><a href="?page=users&action=view">View All Users</a></li>
+        <li><a href="?page=users&action=add">Add User</a></li>
+        <li><a href="?page=users&action=update_view">Modify User</a></li>
+        <li><a href="?page=users&action=archive_activate_view">Suspend/Activate User</a></li>
+        <li><a href="?page=logs&action=view">View All Logs</a></li>
+        <li><a href="?page=backupDatabase">Backup Database</a></li>
+    </ul>
+</div>
+<?php }; ?>
+</div>

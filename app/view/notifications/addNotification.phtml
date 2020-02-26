@@ -1,0 +1,35 @@
+<!-- This is the form for adding a notification, the $highestID variable gives the next id in the list-->
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $page = 'logIn';
+}?>
+<br><br><br><br>
+<div class="page-header"><h3>Add Notification in System (* is Required)</h3></div>
+
+<div class="container">
+    <div class = "row">
+        <div class="col-4 offset-md-4 form-div">
+            <form action="./?page=notifications&action=doAddNotification" method="post">
+                <div class="input-group">
+                    <label for="notificationName">Notification Name* </label>
+                    <input required type="text" name="notificationName" id="notificationName">
+                </div>
+
+                <br><br>
+
+                <div class="input-group">
+                    <label for="notificationType">Notification Type* </label>
+                    <input required type="text" name="notificationType" id="notificationType">
+                </div>
+
+                <br><br>
+
+                <div class="input-group">
+                    <p> Status: enabled</p>
+                </div>
+                <input type="hidden" name="status" value="enabled"><br>
+                <input type="hidden" name="id">
+                <input type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+</div>

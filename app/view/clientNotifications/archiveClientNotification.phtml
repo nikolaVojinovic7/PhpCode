@@ -1,0 +1,23 @@
+<!-- this is a form that passes hidden values to just CHANGE THE STATUS FIELD,
+which is added in the doArchiveClientNotification case in the clientNotifications model-->
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $page = 'logIn';
+}?>
+
+<?php
+require_once '../app/model/ClientEvent.php';
+?>
+<br><br><br><br><br>
+<div class="container"><p>Are you sure you want to change client event status to archive?</p></div>
+<form action="./?page=clientNotifications&action=doClientNotificationArchive" method="post">
+    <input type="submit" value="Yes, I am sure">
+    <br>
+    <br>
+    <input type="hidden" name="clientID" value="<?php echo $clientEvent->getClientID();?>"><br><br>
+    <input type="hidden" name="notificationID" value="<?php echo $clientEvent->getNotificationID();?>"><br><br>
+    <input type="hidden" name="startDate" value="<?php echo $clientEvent->getStartDate();?>"><br><br>
+    <input type="hidden" name="frequency" value="<?php echo $clientEvent->getFrequency();?>"><br><br>
+    <input type="hidden" name="status" value="archive">
+    <input type="hidden" name="id" value="<?php echo $clientEvent->getMessageID();?>">
+
+</form>

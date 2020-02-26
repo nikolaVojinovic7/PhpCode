@@ -1,0 +1,25 @@
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $page = 'logIn';
+}?>
+
+<?php
+require_once '../app/model/User.php';
+?>
+<br><br><br><br>
+<form action="./?page=users&action=doSuspend" method="post">
+    <p>Are you sure you want to change the status of user: <?php echo $user->getUsername();?> to suspended?</p>
+    <br>
+    <br>
+    <input type="hidden" name="userFirstName" value="<?php echo $user->getUserFirstName();?>"><br><br>
+    <input type="hidden" name="userLastName" value="<?php echo $user->getUserLastName();?>"><br><br>
+    <input type="hidden" name="userEmail" value="<?php echo $user->getUserEmail();?>"><br><br>
+    <input type="hidden" name="userCellNum" value="<?php echo $user->getUserCellNumber();?>"><br><br>
+    <input type="hidden" name="userPos" value="<?php echo $user->getUserPosition();?>"><br><br>
+    <input type="hidden" name="username" value="<?php echo $user->getUsername();?>"><br><br>
+    <input type="hidden" name="password" value="<?php echo $user->getPassword();?>"><br><br>
+    <input type="hidden" name="userPic" value="<?php echo $user->getUserPic();?>"><br><br>
+    <input type="hidden" name="userStatus" value="Suspended">
+    <input type="hidden" name="id" value="<?php echo $user->getId();?>">
+    <input type="submit" value="Yes, I am sure">
+
+</form>

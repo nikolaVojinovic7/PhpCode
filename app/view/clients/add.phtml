@@ -1,0 +1,68 @@
+<!-- This is the form for adding a client, the $highestID variable gives the next id in the list-->
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $page = 'logIn';
+}?>
+<br><br><br>
+<div class="container"><h3 class="header3">Add Client to Notification System (* is Required)</h3></div>
+
+<div class="container">
+    <div class = "row">
+        <div class="col-4 offset-md-4 form-div">
+            <form action="./?page=clients&action=doAdd" method="post">
+
+                <div class="input-group">
+                    <label for="companyName">Company Name*</label>
+                    <input required type="text" name="companyName" id="companyName">
+                </div>
+                <br><br>
+                <div class="input-group">
+                    <label for="businessNum">Business Number*</label>
+                    <input required type="text" name="businessNum" id="businessNum">
+                </div>
+
+                <br><br>
+
+                <div class="input-group">
+                    <label for="firstName">Contact's First Name*</label>
+                    <input required type="text" name="firstName" id="firstName">
+                </div>
+
+                <br><br>
+
+                <div class="input-group">
+                    <label for="lastName">Contact's Last Name*</label>
+                    <input required type="text" name="lastName" id="lastName">
+                </div>
+
+                <br><br>
+
+                <div class="input-group">
+                    <label for="phoneNum">Phone Number* </label>
+                    <input required type="text" name="phoneNum" id="phoneNum">
+                </div>
+
+                <br><br>
+
+                <div class="input-group">
+                    <label for="cellNum">Cell Number* </label>
+                    <input required type="text" name="cellNum" id="cellNum">
+                </div>
+
+                <br><br>
+
+                <div class="input-group">
+                    <label for="website">Website </label>
+                    <input type="text" name="website" id="website">
+                </div>
+
+                <br>
+                <p>Status: active</p>
+                <br>
+                <input type="hidden" name="status" value="active">
+                <input type="hidden" name="id">
+                <input type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+</div>
+

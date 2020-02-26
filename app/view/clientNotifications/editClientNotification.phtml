@@ -1,0 +1,60 @@
+<!-- this is a form that asks for fields to edit, while also passing values through hidden fields-->
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $page = 'logIn';
+}?>
+
+<?php
+require_once '../app/model/ClientEvent.php';
+?>
+<br><br><br><br>
+<div class="page-header"><h3>Change Client Event in System (* is Required)</h3></div>
+
+<div class="container">
+    <div class = "row">
+        <div class="col-4 offset-md-4 form-div">
+            <form action="./?page=clientNotifications&action=doClientNotificationEdit" method="post">
+                <div class="input-group">
+                    <p>Client Event ID: <?php echo $clientEvent->getMessageID();?></p>
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <label for="clientID">Client ID:*</label>
+                    <input required type="text" name="clientID" id="clientID" value="<?php echo $clientEvent->getClientID();?>">
+                </div>
+                <br>
+
+
+                <div class="input-group">
+                    <label for="notificationID">Notification ID:*</label>
+                    <input required type="text" name="notificationID" id="notificationID" value="<?php echo $clientEvent->getNotificationID();?>">
+                </div>
+                <br>
+
+
+                <div class="input-group">
+                    <label for="startDate">Start Date/Time:*</label>
+                    <input required type="text" name="startDate" id="startDate" value="<?php echo $clientEvent->getStartDate();?>">
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <label for="frequency">Frequency:*</label>
+                    <input required type="text" name="frequency" id="frequency" value="<?php echo $clientEvent->getFrequency();?>">
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <p>Status: <?php echo $clientEvent->getStatus();?></p>
+                </div>
+                <br>
+
+                <input type="hidden" name="status" value="<?php echo $clientEvent->getStatus();?>">
+                <input type="hidden" name="id" value="<?php echo $clientEvent->getMessageID();?>">
+                <input type="submit" value="Submit">
+
+            </form>
+        </div>
+    </div>
+</div>
+

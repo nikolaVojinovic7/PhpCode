@@ -1,0 +1,44 @@
+<!-- this is a form that asks for fields to edit, while also passing values through hidden fields-->
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $page = 'logIn';
+}?>
+
+<?php
+require_once '../app/model/Notification.php';
+?>
+<br><br><br><br>
+<div class="page-header"><h3>Change Notification in System (* is Required)</h3></div>
+
+<div class="container">
+    <div class = "row">
+        <div class="col-4 offset-md-4 form-div">
+            <form action="./?page=notifications&action=doEditNotification" method="post">
+                <br><br>
+                <div class="input-group">
+                    Notification ID: <?php echo $notification->getId();?>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="notificationName">Notification Name:*</label>
+                    <input required type="text" name="notificationName" id="notificationName" value="<?php echo $notification->getName();?>">
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <label for="notificationType">Notification Type:*</label>
+                    <input required type="text" name="notificationType" id="notificationType" value="<?php echo $notification->getType();?>">
+                </div>
+                <br>
+
+                <div class="input-group">
+                    Status: <?php echo $notification->getStatus();?>
+                </div>
+                <br>
+                <input type="hidden" name="status" value="<?php echo $notification->getStatus();?>">
+                <input type="hidden" name="id" value="<?php echo $notification->getId();?>">
+                <input type="submit" value="Submit">
+
+            </form>
+        </div>
+    </div>
+</div>

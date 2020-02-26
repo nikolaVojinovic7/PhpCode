@@ -1,0 +1,42 @@
+<!-- this page is to style the whole system and keep a sense of similarity throughout-->
+<?php
+$imagesPath = '..'.DS.'app'.DS.'data'.DS.'images'.DS;
+
+if (!isset($_SESSION['picture'])){
+    $_SESSION['picture'] = 'defaultpic.jpg';
+}
+
+?>
+<?php
+$page = '?page=home';
+if(@$_SESSION['username'] == null || @$_SESSION['password'] == null){
+    $page = '?page=logIn';
+}?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Notification System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar">
+                <li class="nav-item"><a href="<?php echo $page?>" class="nav-link">Home</a></li>
+                <li class = "nav-item" id="logoutButton"><a href="?page=users&action=logout" class="nav-link">Sign Out</a></li>
+                <li class="navbar-brand"><img src="<?php echo $imagesPath.$_SESSION['picture']?>" alt="Profile Pic"></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <?php
+        include $main_content;
+        ?>
+    </div>
+</body>
+</html>

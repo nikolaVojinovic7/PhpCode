@@ -1,0 +1,60 @@
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $page = 'logIn';
+    $users = getAllUsers($conn);
+}?>
+
+<?php
+require_once '../app/model/users.php';
+?>
+<br><br><br><br>
+<h1>Update any Users</h1>
+<br>
+<br>
+<div class="container">
+    <form action="./?page=users&action=search" method="post">
+        Search Users: <input type="text" name="input">
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+
+<div class="container table-responsive" >
+    <table class="table table-dark table-hover">
+        <tr class="client_table">
+            <th>User ID</th>
+            <th>User First Name</th>
+            <th>User Last Name</th>
+            <th>User Email</th>
+            <th>User Cell Number</th>
+            <th>User Position</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>User Status</th>
+            <th>User Picture</th>
+
+        </tr>
+        <?php
+        foreach ($users as $key=>$user){
+            ?>
+            <tr>
+                <td><?php echo $user->getId(); ?></td>
+                <td><?php echo $user->getUserFirstName(); ?></td>
+                <td><?php echo $user->getUserLastName(); ?></td>
+                <td><?php echo $user->getUserEmail(); ?></td>
+                <td><?php echo $user->getUserCellNumber(); ?></td>
+                <td><?php echo $user->getUserPosition(); ?></td>
+                <td><?php echo $user->getUsername(); ?></td>
+                <td><?php echo md5($user->getPassword()); ?></td>
+                <td><?php echo $user->getStatus(); ?></td>
+                <td><?php echo $user->getUserPic(); ?></td>
+                <td><a href="?page=users&action=update&id=<?php echo $user->getId(); ?>">Update</a></td>
+            </tr>
+            <?php
+        }
+        ?>
+    </table>
+</div>
+
+<br>
+<br>
+<a class = "addSomething" href="?page=users&action=add">Add a User</a>

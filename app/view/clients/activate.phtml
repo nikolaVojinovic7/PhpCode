@@ -1,0 +1,25 @@
+<!-- this is the hidden form that passes all the values for a field in client to change the status to active,
+also it has a are you sure message within it -->
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $page = 'logIn';
+}?>
+<?php
+require_once '../app/model/Client.php';
+?>
+<br><br><br><br><br>
+<div class="container"><p>Are you sure you want to change status to active?</p></div>
+<form action="./?page=clients&action=doActivate" method="post">
+    <br>
+    <br>
+    <input type="hidden" name="companyName" value="<?php echo $client->getCompanyName();?>"><br><br>
+    <input type="hidden" name="businessNum" value="<?php echo $client->getBusinessNumber();?>"><br><br>
+    <input type="hidden" name="firstName" value="<?php echo $client->getFirstName();?>"><br><br>
+    <input type="hidden" name="lastName" value="<?php echo $client->getLastName();?>">
+    <input type="hidden" name="phoneNum" value="<?php echo $client->getPhoneNumber();?>">
+    <input type="hidden" name="cellNum" value="<?php echo $client->getCellNumber();?>">
+    <input type="hidden" name="website" value="<?php echo $client->getWebsite();?>">
+    <input type="hidden" name="status" value="active">
+    <input type="hidden" name="id" value="<?php echo $client->getId();?>">
+    <input type="submit" value="Yes, I am sure">
+
+</form>

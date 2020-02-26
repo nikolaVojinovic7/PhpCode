@@ -1,0 +1,58 @@
+
+<h1>Create User Page</h1>
+<div class="container">
+    <h3>* Means the Field is Required</h3>
+    <div class = "row">
+        <div class="col-4 offset-md-4 form-div">
+
+            <form action="./?page=users&action=doAdd" method="post" enctype="multipart/form-data">
+                <div>
+                    <label for="userFirstName">First Name:  *</label>
+                    <input required type="text" name="userFirstName" id="userFirstName">
+                </div>
+                <div>
+                    <label for="userLastName">Last Name: *</label>
+                    <input required type="text" name="userLastName" id="userLastName">
+                </div>
+                <div>
+                    <label for="userEmail">Email:  *</label>
+                    <input required type="text" name="userEmail" id="userEmail">
+                </div>
+                <div>
+                    <label for="userCellNum">Cell Number: *</label>
+                    <input required type="text" name="userCellNum" id="userCellNum">
+                </div>
+                <div>
+                    <label for="userPos">Position:  *</label>
+                    <input required list="positions" name="userPos" id="userPos">
+                    <datalist id="positions">
+                        <option value="Manager"></option>
+                        <option value="Senior Accountant"></option>
+                        <option value="Junior Accountant"></option>
+                        <option value="Chartered Accountant"></option>
+                        <option value="Bookkeeper"></option>
+                    </datalist>
+                </div>
+                <div>
+                    <label for="username">Username: *</label>
+                    <input required type="text" name="username" id="username">
+                </div>
+                <div>
+                    <label for="password">Password:  *</label>
+                    <input required type="password" name="password" id="password">
+                </div>
+                Status: Suspended <br> <br>
+                <div class="form-group">
+                    <label for="profileImage">Profile Image</label>
+                    <input type="file" name="profileImage" id="profileImage" class="form-control">
+
+                </div>
+                <input type="hidden" name="userStatus" value="Suspended"><br><br>
+                <input type="hidden" name="id">
+                <div class="form-group">
+                    <input type="submit" name="save-user" value="Save User" class="btn btn-primary btn-block">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

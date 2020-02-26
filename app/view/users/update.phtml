@@ -1,0 +1,28 @@
+<?php if($_SESSION['username'] == null || $_SESSION['password']== null){
+    $page = 'logIn';
+}?>
+
+<?php
+require_once '../app/model/User.php';
+?>
+<br><br><br><br>
+<div class="container"><h3 class="header3">Change a User in the System (* is Required)</h3></div>
+<form action="./?page=users&action=doUpdate" method="post">
+    User ID: <?php echo $user->getId();?>
+    <br>
+    <br>
+    User First Name:*  <input required type="text" name="userFirstName" value="<?php echo $user->getUserFirstName();?>"><br><br>
+    User Last Name:* <input required type="text" name="userLastName" value="<?php echo $user->getUserLastName();?>"><br><br>
+    User Email:*  <input required type="text" name="userEmail" value="<?php echo $user->getUserEmail();?>"><br><br>
+    User Cell Number:* <input required type="text" name="userCellNum" value="<?php echo $user->getUserCellNumber();?>"><br><br>
+    User Position:*<input required type="text" name="userPos" value="<?php echo $user->getUserPosition();?>"><br><br>
+    Username:* <input required type="text" name="username" value="<?php echo $user->getUsername();?>"><br><br>
+    Password:* <input required type="password" name="password" value="<?php echo $user->getPassword();?>"><br><br>
+    <input type="hidden" name="userPic" value="<?php echo $user->getUserPic();?>">
+    Status: <?php echo $user->getStatus();?>
+    <br><br>
+    <input type="hidden" name="userStatus" value="<?php echo $user->getStatus();?>">
+    <input type="hidden" name="id" value="<?php echo $user->getId();?>">
+    <input type="submit" value="Submit">
+
+</form>

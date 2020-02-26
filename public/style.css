@@ -1,0 +1,72 @@
+#main{
+    margin-top: 20px;
+}
+
+.section{
+    border: 1px solid darkgrey;
+    width: 1000px;
+    min-height: 100px;
+    border-radius: 3px;
+}
+.section ul{
+    list-style-type: none;
+}
+
+.section ul li{
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+form{
+    margin-left : 5%;
+}
+
+
+h1{
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    font-size: larger;
+}
+
+a:hover{
+    text-decoration: none;
+    color: royalblue;
+}
+
+h3{
+    text-align: center;
+}
+.addSomething{
+    margin-left: 5%;
+}
+p {
+    font-size: larger;
+}
+
+.form-div{
+    margin-top: 100px;
+    border:  1px solid #e0e0e0;
+    padding-top: 15px;
+}
+
+#logoutButton{
+
+}
+
+#createAccount{
+    float: right;
+}
+
+#logInContainer{
+    position: relative;
+    margin: auto;
+    horiz-align: center;
+}
+
+.header3{
+    display: inline-block;
+    horiz-align: center;
+}
